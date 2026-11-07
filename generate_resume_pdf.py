@@ -90,7 +90,7 @@ story = []
 story.append(Paragraph("MASHUKUR MANIK", name_style))
 story.append(Paragraph("Undergraduate CSE Student @ SUST • Full Stack Web Developer & ML / DL Engineer", title_style))
 story.append(Spacer(1, 3))
-story.append(Paragraph("Email: mashukurmanik2552@gmail.com | GitHub: github.com/mashukurmanilk | Location: Sylhet / Dhaka, Bangladesh", contact_style))
+story.append(Paragraph("Email: mashukurmanik2552@gmail.com | GitHub: github.com/mashukurmanilk | Kaggle: kaggle.com/mashukurmanik | Location: Sylhet, Bangladesh", contact_style))
 story.append(Spacer(1, 6))
 story.append(HRFlowable(width="100%", thickness=1.5, color=SUN_GOLD, spaceAfter=8))
 
