@@ -807,6 +807,7 @@ button {
   gap: 0.5rem;
   background-color: var(--maroon-base);
   background-image: url('assets/maroon-texture.png');
+  background-image: fit;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -898,9 +899,7 @@ button {
 .about-story-card {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.25rem;
@@ -943,9 +942,7 @@ button {
   gap: 1.25rem;
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
@@ -1011,9 +1008,7 @@ button {
   color: var(--text-muted);
   background-color: var(--maroon-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   transition: all var(--transition-fast);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -1040,9 +1035,7 @@ button {
 .skill-card {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
@@ -1169,9 +1162,7 @@ button {
 .timeline-content {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.75rem;
@@ -1250,9 +1241,7 @@ button {
 .exp-card {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.25rem;
@@ -1330,9 +1319,7 @@ button {
 .project-card {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   overflow: hidden;
@@ -1373,9 +1360,7 @@ button {
   right: 14px;
   background-color: var(--maroon-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   color: var(--sun-bright);
   font-size: 0.75rem;
@@ -1479,9 +1464,7 @@ button {
   gap: 1.15rem;
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
@@ -1583,9 +1566,7 @@ a.contact-value:hover { color: var(--sun-gold); }
 .contact-form {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.5rem;
@@ -1681,9 +1662,7 @@ a.contact-value:hover { color: var(--sun-gold); }
 .footer {
   background-color: var(--maroon-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border-top: 2px dashed #4A0E13;
   padding: 4.5rem 0 2rem;
   position: relative;
@@ -1845,9 +1824,7 @@ a.contact-value:hover { color: var(--sun-gold); }
 .modal-card {
   background-color: var(--card-bg-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   border-radius: 16px;
   width: 100%;
@@ -1982,9 +1959,7 @@ a.contact-value:hover { color: var(--sun-gold); }
   padding: 1.5rem 2rem;
   background-color: var(--maroon-base);
   background-image: url('assets/maroon-texture.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: repeat;
   border-bottom: 2px dashed #4A0E13;
 }
 
