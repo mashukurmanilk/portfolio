@@ -152,7 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentSectionId}`) {
         link.classList.add('active');
+        link.classList.add('visited');
       }
+    });
+  });
+
+  // Track clicked/visited state on navigation buttons
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      link.classList.add('visited');
     });
   });
 

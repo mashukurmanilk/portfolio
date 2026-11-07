@@ -1,9 +1,11 @@
 /* ===================================================================
    MASHUKUR MANIK PORTFOLIO DESIGN SYSTEM
    - Background: background.jpg (Fixed atmospheric smoky clouds)
+   - Navbar Background: #e8d0ca with a dashed bottom separator line
+   - Visited/Active Nav Links: Rich Maroon Underline (#4A0E13)
    - Primary Color: The Color of the Sun (#F59E0B, #FBBF24, #D97706)
-   - Secondary Color: Roman Maroon Palette (#4A0E13, #370705, #5C1218, #7A171F)
-   - Profile: Undergrad CSE Student @ SUST | Full Stack & ML / DL Engineer
+   - Secondary Color & Texture: Roman Maroon (#4A0E13, #370705) with maroon-texture.png
+   - Profile Picture: assets/profile-photo.jpg (from WhatsApp Image)
 =================================================================== */
 
 :root {
@@ -11,26 +13,29 @@
   --sun-gold: #F59E0B;
   --sun-bright: #FBBF24;
   --sun-dark: #D97706;
-  --sun-glow: rgba(245, 158, 11, 0.4);
-  --sun-subtle: rgba(245, 158, 11, 0.14);
-  --sun-border: rgba(245, 158, 11, 0.28);
+  --sun-glow: rgba(245, 158, 11, 0.35);
+  --sun-subtle: rgba(245, 158, 11, 0.12);
+  --sun-border: rgba(245, 158, 11, 0.35);
 
-  /* Maroon Palette from pallate.png (Secondary Color) */
+  /* Maroon Palette from pallate.png & user texture */
   --maroon-deep: #2A0508;
   --maroon-base: #370705;
   --maroon: #4A0E13;
   --maroon-medium: #5C1218;
   --maroon-light: #7A171F;
-  --maroon-glow: rgba(92, 18, 24, 0.45);
-  --maroon-subtle: rgba(74, 14, 19, 0.25);
-  --maroon-border: rgba(122, 23, 31, 0.4);
+  --maroon-glow: rgba(74, 14, 19, 0.5);
+  --maroon-border: rgba(122, 23, 31, 0.45);
 
-  /* Glassmorphic Surfaces over background.jpg */
-  --card-bg: rgba(35, 14, 19, 0.88);
-  --card-bg-hover: rgba(48, 18, 25, 0.94);
-  --card-border: rgba(245, 158, 11, 0.22);
-  --card-border-hover: rgba(245, 158, 11, 0.65);
-  --glass-blur: blur(14px);
+  /* Navbar specific colors */
+  --navbar-bg: #e8d0ca;
+  --navbar-text: #370705;
+  --navbar-underline: #4A0E13;
+
+  /* Surfaces with authentic maroon texture */
+  --card-bg-base: rgba(45, 10, 14, 0.92);
+  --card-border: rgba(245, 158, 11, 0.28);
+  --card-border-hover: rgba(245, 158, 11, 0.7);
+  --glass-blur: blur(12px);
 
   /* Text Colors */
   --text-main: #F8FAFC;
@@ -49,7 +54,7 @@
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
   --shadow-sun: 0 0 25px rgba(245, 158, 11, 0.35);
-  --shadow-maroon: 0 0 25px rgba(92, 18, 24, 0.5);
+  --shadow-maroon: 0 0 25px rgba(74, 14, 19, 0.5);
 }
 
 /* ==================== RESET & BASE ==================== */
@@ -119,7 +124,7 @@ button {
 }
 
 .accent-dot {
-  color: var(--sun-gold);
+  color: var(--maroon);
 }
 
 .container {
@@ -149,7 +154,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--maroon);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   color: var(--sun-bright);
   border: 1px solid var(--sun-border);
   padding: 0.35rem 1.1rem;
@@ -167,7 +174,7 @@ button {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .section-subtitle {
@@ -175,19 +182,19 @@ button {
   max-width: 700px;
   margin: 0 auto;
   font-size: 1.05rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .section-divider {
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--sun-gold), var(--maroon-light));
+  background: linear-gradient(90deg, var(--sun-gold), var(--maroon));
   margin: 1.25rem auto 0;
   border-radius: 2px;
   box-shadow: 0 0 10px var(--sun-gold);
 }
 
-/* ==================== BUTTONS ==================== */
+/* ==================== BUTTONS WITH TEXTURE (NO EXCESSIVE GRADIENT) ==================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -195,42 +202,51 @@ button {
   gap: 0.6rem;
   padding: 0.85rem 1.75rem;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   transition: all var(--transition-normal);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Primary Button (Solar Gold) */
 .btn-primary {
-  background: linear-gradient(135deg, var(--sun-gold), var(--sun-dark));
-  color: #120A0E;
+  background-color: var(--sun-gold);
+  color: #1a080c;
+  border: 1px solid var(--sun-dark);
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
-  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--sun-bright), var(--sun-gold));
+  background-color: var(--sun-bright);
+  color: #000000;
   box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6);
   transform: translateY(-2px);
-  color: #000000;
 }
 
+/* Secondary Button with Authentic Maroon Texture */
 .btn-secondary {
-  background: linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   color: var(--text-light);
-  border: 1px solid var(--maroon-light);
-  box-shadow: 0 4px 15px rgba(74, 14, 19, 0.5);
+  border: 1px solid var(--sun-border);
+  box-shadow: 0 4px 15px rgba(55, 7, 5, 0.6);
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(135deg, var(--maroon-light), var(--maroon));
-  box-shadow: 0 6px 20px rgba(92, 18, 24, 0.7);
-  transform: translateY(-2px);
   border-color: var(--sun-gold);
+  box-shadow: 0 6px 20px rgba(74, 14, 19, 0.8), 0 0 15px rgba(245, 158, 11, 0.35);
+  transform: translateY(-2px);
+  color: #FFFFFF;
 }
 
+/* Outline Button */
 .btn-outline {
-  background: rgba(35, 14, 19, 0.8);
+  background-color: rgba(35, 14, 19, 0.85);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   color: var(--text-main);
   border: 1px solid var(--sun-border);
   backdrop-filter: var(--glass-blur);
@@ -239,51 +255,49 @@ button {
 .btn-outline:hover {
   border-color: var(--sun-gold);
   color: var(--sun-gold);
-  background: rgba(45, 14, 22, 0.95);
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
 .btn-primary-sm {
-  padding: 0.55rem 1.2rem;
+  padding: 0.55rem 1.25rem;
   font-size: 0.88rem;
   border-radius: 6px;
-  background: linear-gradient(135deg, var(--sun-gold), var(--sun-dark));
-  color: #120A0E;
+  background-color: var(--sun-gold);
+  color: #1a080c;
   font-weight: 700;
+  border: 1px solid var(--sun-dark);
 }
 
 .btn-primary-sm:hover {
-  background: var(--sun-bright);
+  background-color: var(--sun-bright);
   box-shadow: var(--shadow-sun);
   transform: translateY(-1px);
 }
 
-.w-100 {
-  width: 100%;
-}
-
+.w-100 { width: 100%; }
 .mt-3 { margin-top: 1rem; }
 .mt-4 { margin-top: 1.5rem; }
 
-/* ==================== 1. NAVIGATION BAR ==================== */
+/* ==================== 1. NAVBAR (#e8d0ca, DASHED SEPARATOR & MAROON UNDERLINE) ==================== */
 .navbar {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(28, 10, 15, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  background-color: var(--navbar-bg) !important; /* #e8d0ca */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px dashed #4A0E13 !important; /* Dashed separator line to hero */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
-  background: rgba(20, 8, 12, 0.98);
-  border-bottom-color: rgba(245, 158, 11, 0.35);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  background-color: #ebd5cf !important;
+  border-bottom: 2px dashed #370705 !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
 }
 
 .nav-container {
@@ -304,9 +318,9 @@ button {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  color: var(--text-light);
+  color: var(--navbar-text); /* #370705 */
   letter-spacing: -0.03em;
 }
 
@@ -318,15 +332,17 @@ button {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
+/* Nav links with Maroon Underline when visited/active/hovered */
 .nav-link {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--navbar-text); /* #370705 */
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.5rem 0.15rem;
+  transition: color var(--transition-fast);
 }
 
 .nav-link::after {
@@ -335,19 +351,23 @@ button {
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 2px;
-  background: var(--sun-gold);
-  transition: width var(--transition-fast);
+  height: 3px;
+  background: var(--navbar-underline); /* #4A0E13 maroon underline */
+  transition: width 0.25s ease;
   border-radius: 2px;
 }
 
+/* Visited / Active / Hover states show maroon underline */
 .nav-link:hover,
-.nav-link.active {
-  color: var(--text-light);
+.nav-link.active,
+.nav-link.visited,
+.nav-link:visited {
+  color: #2A0508;
 }
 
 .nav-link:hover::after,
-.nav-link.active::after {
+.nav-link.active::after,
+.nav-link.visited::after {
   width: 100%;
 }
 
@@ -355,6 +375,23 @@ button {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* Resume Button in Navbar */
+.btn-resume-nav {
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 3px 10px rgba(74, 14, 19, 0.4);
+}
+
+.btn-resume-nav:hover {
+  border-color: var(--sun-gold);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);
+  color: #FFFFFF !important;
 }
 
 .nav-toggle {
@@ -368,8 +405,8 @@ button {
 
 .hamburger-bar {
   width: 100%;
-  height: 2px;
-  background-color: var(--text-light);
+  height: 3px;
+  background-color: #370705; /* Maroon bar for contrast on #e8d0ca */
   border-radius: 2px;
   transition: var(--transition-fast);
 }
@@ -381,15 +418,14 @@ button {
   right: -320px;
   width: 300px;
   height: 100vh;
-  background: rgba(30, 10, 15, 0.98);
-  backdrop-filter: blur(20px);
-  border-left: 1px solid var(--maroon-border);
+  background-color: #f2e2de;
+  border-left: 2px dashed #4A0E13;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   padding: 1.75rem;
   transition: right var(--transition-normal);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
 }
 
 .mobile-drawer.open {
@@ -402,22 +438,23 @@ button {
   justify-content: space-between;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px dashed #4A0E13;
 }
 
 .drawer-logo {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 800;
+  color: #370705;
 }
 
 .drawer-close {
-  color: var(--text-muted);
+  color: #370705;
   font-size: 1.4rem;
 }
 
 .drawer-close:hover {
-  color: var(--sun-gold);
+  color: var(--maroon);
 }
 
 .drawer-list {
@@ -432,19 +469,25 @@ button {
   align-items: center;
   gap: 0.9rem;
   font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text-muted);
+  font-weight: 700;
+  color: #370705;
   padding: 0.5rem 0;
+  position: relative;
 }
 
-.drawer-link:hover {
-  color: var(--sun-gold);
+.drawer-link:hover,
+.drawer-link.active,
+.drawer-link.visited {
+  color: #4A0E13;
+  text-decoration: underline;
+  text-decoration-color: #4A0E13;
+  text-decoration-thickness: 3px;
 }
 
 .drawer-footer {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px dashed #4A0E13;
 }
 
 .drawer-socials {
@@ -461,16 +504,17 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--maroon);
-  border: 1px solid var(--maroon-border);
+  background-color: var(--maroon);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  border: 1px solid var(--sun-border);
   color: var(--text-light);
   font-size: 1.1rem;
 }
 
 .drawer-socials a:hover {
-  background: var(--sun-gold);
-  color: #120A0E;
   border-color: var(--sun-gold);
+  transform: translateY(-2px);
 }
 
 .drawer-backdrop {
@@ -509,15 +553,16 @@ button {
   align-items: center;
   gap: 0.6rem;
   padding: 0.45rem 1.15rem;
-  background: rgba(45, 12, 18, 0.9);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   border-radius: 9999px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--sun-bright);
   margin-bottom: 1.5rem;
-  backdrop-filter: var(--glass-blur);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .status-indicator {
@@ -545,7 +590,7 @@ button {
   color: var(--text-muted);
   letter-spacing: 0.02em;
   margin-bottom: 0.25rem;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-name {
@@ -553,10 +598,8 @@ button {
   font-size: 3.75rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #FFFFFF 30%, var(--sun-gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+  color: #FFFFFF;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.3);
 }
 
 .hero-designation-wrapper {
@@ -592,7 +635,7 @@ button {
   line-height: 1.7;
   max-width: 600px;
   margin-bottom: 2.25rem;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-bio strong {
@@ -620,23 +663,25 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-right: 0.25rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .social-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(45, 12, 18, 0.85);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   padding: 0.45rem 0.95rem;
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-main);
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-fast);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .social-pill i {
@@ -644,7 +689,6 @@ button {
 }
 
 .social-pill:hover {
-  background: var(--maroon);
   border-color: var(--sun-gold);
   color: var(--text-light);
   transform: translateY(-2px);
@@ -684,7 +728,7 @@ button {
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 2px dashed rgba(245, 158, 11, 0.45);
+  border: 2px dashed var(--sun-gold);
   animation: rotateRing 20s linear infinite;
 }
 
@@ -698,8 +742,11 @@ button {
   height: 290px;
   border-radius: 50%;
   padding: 6px;
-  background: linear-gradient(135deg, var(--sun-gold), var(--maroon));
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  background-color: var(--maroon);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  border: 2px solid var(--sun-gold);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
   position: relative;
   z-index: 2;
 }
@@ -719,7 +766,9 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(45, 12, 18, 0.95);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   padding: 0.5rem 0.9rem;
   border-radius: 9999px;
@@ -728,7 +777,6 @@ button {
   color: var(--text-light);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
   z-index: 3;
-  backdrop-filter: var(--glass-blur);
   animation: floatBadge 3.5s ease-in-out infinite alternate;
 }
 
@@ -737,29 +785,10 @@ button {
   100% { transform: translateY(-8px); }
 }
 
-.badge-top-right {
-  top: 15px;
-  right: -20px;
-  animation-delay: 0s;
-}
-
-.badge-bottom-left {
-  bottom: 25px;
-  left: -25px;
-  animation-delay: 0.8s;
-}
-
-.badge-top-left {
-  top: 40px;
-  left: -30px;
-  animation-delay: 1.5s;
-}
-
-.badge-bottom-right {
-  bottom: 15px;
-  right: -20px;
-  animation-delay: 2.2s;
-}
+.badge-top-right { top: 15px; right: -20px; animation-delay: 0s; }
+.badge-bottom-left { bottom: 25px; left: -25px; animation-delay: 0.8s; }
+.badge-top-left { top: 40px; left: -30px; animation-delay: 1.5s; }
+.badge-bottom-right { bottom: 15px; right: -20px; animation-delay: 2.2s; }
 
 .tech-icon-react { color: #61DAFB; font-size: 1.1rem; }
 .tech-icon-pytorch { color: #EE4C2C; font-size: 1.1rem; }
@@ -781,10 +810,12 @@ button {
 .hero-metrics-bar {
   margin-top: 3.5rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(245, 158, 11, 0.2);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
-  background: rgba(35, 12, 18, 0.75);
-  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .metrics-grid {
@@ -800,7 +831,7 @@ button {
 
 .metric-number {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--sun-gold);
   line-height: 1.1;
@@ -822,11 +853,12 @@ button {
 }
 
 .about-story-card {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.25rem;
-  backdrop-filter: var(--glass-blur);
   box-shadow: var(--shadow-md);
 }
 
@@ -864,20 +896,20 @@ button {
 .pillar-card {
   display: flex;
   gap: 1.25rem;
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
 }
 
 .pillar-card:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateX(6px);
-  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.25);
 }
 
 .pillar-icon {
@@ -892,7 +924,7 @@ button {
 }
 
 .pillar-icon.sun-icon {
-  background: rgba(245, 158, 11, 0.18);
+  background: rgba(245, 158, 11, 0.2);
   color: var(--sun-gold);
   border: 1px solid var(--sun-border);
 }
@@ -928,13 +960,14 @@ button {
   padding: 0.55rem 1.35rem;
   border-radius: 9999px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
-  background: rgba(45, 12, 18, 0.85);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-fast);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .skill-filter-btn:hover {
@@ -943,11 +976,10 @@ button {
 }
 
 .skill-filter-btn.active {
-  background: var(--sun-gold);
-  color: #120A0E;
+  background: var(--sun-gold) !important;
+  color: #120A0E !important;
   border-color: var(--sun-gold);
   box-shadow: var(--shadow-sun);
-  font-weight: 700;
 }
 
 .skills-grid {
@@ -957,20 +989,20 @@ button {
 }
 
 .skill-card {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
 }
 
 .skill-card:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.25);
 }
 
 .skill-header {
@@ -984,7 +1016,8 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1010,32 +1043,15 @@ button {
 .text-cv { color: #00E676; }
 .text-nlp { color: #F43F5E; }
 
-.skill-info {
-  flex-grow: 1;
-}
-
-.skill-info h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.15rem;
-}
-
-.skill-level {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-}
-
-.skill-percentage {
-  font-family: var(--font-code);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--sun-gold);
-}
+.skill-info { flex-grow: 1; }
+.skill-info h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.15rem; }
+.skill-level { font-size: 0.78rem; color: var(--text-dim); }
+.skill-percentage { font-family: var(--font-code); font-size: 0.95rem; font-weight: 700; color: var(--sun-gold); }
 
 .skill-progress-bar {
   width: 100%;
   height: 7px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 9999px;
   overflow: hidden;
   margin-bottom: 0.85rem;
@@ -1047,13 +1063,8 @@ button {
   transition: width 1s ease-in-out;
 }
 
-.sun-bar {
-  background: linear-gradient(90deg, var(--sun-dark), var(--sun-gold));
-}
-
-.maroon-bar {
-  background: linear-gradient(90deg, var(--maroon), var(--sun-gold));
-}
+.sun-bar { background: var(--sun-gold); }
+.maroon-bar { background: var(--sun-bright); }
 
 .skill-desc {
   font-size: 0.84rem;
@@ -1084,9 +1095,7 @@ button {
   margin-bottom: 2.75rem;
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
+.timeline-item:last-child { margin-bottom: 0; }
 
 .timeline-dot {
   position: absolute;
@@ -1107,20 +1116,20 @@ button {
 }
 
 .timeline-content {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.75rem;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
 }
 
 .timeline-content:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateX(6px);
-  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.25);
 }
 
 .timeline-badge {
@@ -1133,7 +1142,7 @@ button {
 }
 
 .sun-badge {
-  background: rgba(245, 158, 11, 0.2);
+  background: rgba(245, 158, 11, 0.25);
   color: var(--sun-gold);
   border: 1px solid var(--sun-border);
 }
@@ -1144,12 +1153,7 @@ button {
   border: 1px solid var(--maroon-border);
 }
 
-.timeline-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-}
-
+.timeline-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.35rem; }
 .timeline-institution {
   font-size: 0.98rem;
   font-weight: 600;
@@ -1176,7 +1180,7 @@ button {
 .timeline-tags span {
   font-size: 0.8rem;
   font-weight: 600;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--maroon-border);
   padding: 0.25rem 0.75rem;
   border-radius: 6px;
@@ -1191,20 +1195,20 @@ button {
 }
 
 .exp-card {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.25rem;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
 }
 
 .exp-card:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(245, 158, 11, 0.25);
 }
 
 .exp-header {
@@ -1216,12 +1220,7 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.exp-role-info h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-}
-
+.exp-role-info h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.35rem; }
 .exp-company {
   font-size: 0.95rem;
   color: var(--sun-gold);
@@ -1235,8 +1234,8 @@ button {
   font-family: var(--font-code);
   font-size: 0.82rem;
   color: var(--sun-bright);
-  background: var(--maroon);
-  border: 1px solid var(--maroon-border);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--sun-border);
   padding: 0.3rem 0.75rem;
   border-radius: 6px;
 }
@@ -1264,11 +1263,9 @@ button {
   font-size: 1.1rem;
 }
 
-.exp-bullets strong {
-  color: var(--text-light);
-}
+.exp-bullets strong { color: var(--text-light); }
 
-/* ==================== 9. PROJECTS SECTION (PROJECT VAULT) ==================== */
+/* ==================== 9. PROJECT VAULT ==================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1276,11 +1273,12 @@ button {
 }
 
 .project-card {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   overflow: hidden;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
@@ -1288,10 +1286,9 @@ button {
 }
 
 .project-card:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75), 0 0 25px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75), 0 0 25px rgba(245, 158, 11, 0.3);
 }
 
 .project-img-wrapper {
@@ -1317,8 +1314,9 @@ button {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(30, 8, 12, 0.92);
-  backdrop-filter: blur(8px);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   color: var(--sun-bright);
   font-size: 0.75rem;
@@ -1336,12 +1334,7 @@ button {
   flex-grow: 1;
 }
 
-.project-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.65rem;
-}
-
+.project-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.65rem; }
 .project-desc {
   color: var(--text-muted);
   font-size: 0.92rem;
@@ -1360,7 +1353,7 @@ button {
 .project-tech-tags span {
   font-size: 0.76rem;
   font-weight: 600;
-  background: var(--maroon);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--maroon-border);
   color: #F1F5F9;
   padding: 0.2rem 0.65rem;
@@ -1387,7 +1380,7 @@ button {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -1407,12 +1400,7 @@ button {
   gap: 3rem;
 }
 
-.contact-col-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
+.contact-col-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
 .contact-col-desc {
   color: var(--text-muted);
   font-size: 1rem;
@@ -1430,17 +1418,17 @@ button {
   display: flex;
   align-items: center;
   gap: 1.15rem;
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
-  backdrop-filter: var(--glass-blur);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
 }
 
 .contact-info-card:hover {
-  background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -1469,10 +1457,7 @@ button {
   border: 1px solid var(--maroon-border);
 }
 
-.contact-card-body {
-  flex-grow: 1;
-}
-
+.contact-card-body { flex-grow: 1; }
 .contact-label {
   display: block;
   font-size: 0.78rem;
@@ -1490,16 +1475,14 @@ button {
   word-break: break-all;
 }
 
-a.contact-value:hover {
-  color: var(--sun-gold);
-}
+a.contact-value:hover { color: var(--sun-gold); }
 
 .btn-copy {
   position: relative;
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text-muted);
   display: flex;
@@ -1533,17 +1516,16 @@ a.contact-value:hover {
   transition: opacity var(--transition-fast);
 }
 
-.copy-tooltip.show {
-  opacity: 1;
-}
+.copy-tooltip.show { opacity: 1; }
 
 /* Contact Form */
 .contact-form {
-  background: var(--card-bg);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 2.5rem;
-  backdrop-filter: var(--glass-blur);
   box-shadow: var(--shadow-md);
 }
 
@@ -1554,10 +1536,7 @@ a.contact-value:hover {
   color: var(--text-light);
 }
 
-.form-group {
-  margin-bottom: 1.35rem;
-}
-
+.form-group { margin-bottom: 1.35rem; }
 .form-group label {
   display: block;
   font-size: 0.88rem;
@@ -1566,10 +1545,7 @@ a.contact-value:hover {
   margin-bottom: 0.5rem;
 }
 
-.required {
-  color: #EF4444;
-}
-
+.required { color: #EF4444; }
 .input-wrapper {
   position: relative;
   display: flex;
@@ -1589,7 +1565,7 @@ a.contact-value:hover {
 .contact-form textarea {
   width: 100%;
   padding: 0.85rem 1rem 0.85rem 2.85rem;
-  background: rgba(20, 8, 12, 0.85);
+  background: rgba(20, 8, 12, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   color: var(--text-light);
@@ -1598,14 +1574,8 @@ a.contact-value:hover {
   transition: all var(--transition-fast);
 }
 
-.textarea-wrapper .input-icon {
-  top: 1rem;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
+.textarea-wrapper .input-icon { top: 1rem; }
+.contact-form textarea { resize: vertical; min-height: 120px; }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -1646,8 +1616,10 @@ a.contact-value:hover {
 
 /* ==================== 11. FOOTER ==================== */
 .footer {
-  background: rgba(25, 9, 14, 0.96);
-  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  border-top: 2px dashed #4A0E13;
   padding: 4.5rem 0 2rem;
   position: relative;
   z-index: 1;
@@ -1697,9 +1669,7 @@ a.contact-value:hover {
   transition: color var(--transition-fast);
 }
 
-.footer-nav a:hover {
-  color: var(--sun-gold);
-}
+.footer-nav a:hover { color: var(--sun-gold); }
 
 .footer-social-icons {
   display: flex;
@@ -1713,7 +1683,7 @@ a.contact-value:hover {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text-muted);
   font-size: 1.1rem;
@@ -1735,11 +1705,7 @@ a.contact-value:hover {
   gap: 1rem;
 }
 
-.copyright-text {
-  color: var(--text-dim);
-  font-size: 0.88rem;
-}
-
+.copyright-text { color: var(--text-dim); font-size: 0.88rem; }
 .footer-palette-tag {
   display: flex;
   align-items: center;
@@ -1766,7 +1732,7 @@ a.contact-value:hover {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--sun-gold), var(--sun-dark));
+  background-color: var(--sun-gold);
   color: #120A0E;
   font-size: 1.1rem;
   display: flex;
@@ -1809,13 +1775,12 @@ a.contact-value:hover {
   transition: all var(--transition-normal);
 }
 
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
+.modal-overlay.active { opacity: 1; visibility: visible; }
 
 .modal-card {
-  background: rgba(35, 12, 17, 0.98);
+  background-color: var(--card-bg-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border: 1px solid var(--sun-border);
   border-radius: 16px;
   width: 100%;
@@ -1830,9 +1795,7 @@ a.contact-value:hover {
   transition: all var(--transition-normal);
 }
 
-.modal-overlay.active .modal-card {
-  transform: scale(1) translateY(0);
-}
+.modal-overlay.active .modal-card { transform: scale(1) translateY(0); }
 
 .modal-close-btn {
   position: absolute;
@@ -1842,7 +1805,7 @@ a.contact-value:hover {
   height: 38px;
   border-radius: 50%;
   background: var(--maroon);
-  border: 1px solid var(--maroon-border);
+  border: 1px solid var(--sun-border);
   color: var(--text-light);
   display: flex;
   align-items: center;
@@ -1882,15 +1845,8 @@ a.contact-value:hover {
   margin-bottom: 1rem;
 }
 
-.modal-project-title {
-  font-size: 2rem;
-  font-weight: 800;
-}
-
-.modal-links-row {
-  display: flex;
-  gap: 0.85rem;
-}
+.modal-project-title { font-size: 2rem; font-weight: 800; }
+.modal-links-row { display: flex; gap: 0.85rem; }
 
 .modal-sec-heading {
   font-size: 1.15rem;
@@ -1918,7 +1874,7 @@ a.contact-value:hover {
 }
 
 .modal-tech-badge {
-  background: var(--maroon);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--maroon-border);
   color: var(--sun-bright);
   font-size: 0.85rem;
@@ -1951,34 +1907,21 @@ a.contact-value:hover {
 }
 
 /* Resume Modal */
-.resume-modal-card {
-  max-width: 900px;
-}
-
+.resume-modal-card { max-width: 900px; }
 .resume-modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  background: rgba(25, 9, 14, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: var(--maroon-base);
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
+  border-bottom: 2px dashed #4A0E13;
 }
 
-.resume-modal-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-}
-
-.resume-modal-sub {
-  color: var(--sun-gold);
-  font-size: 0.88rem;
-}
-
-.resume-modal-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-right: 2.5rem;
-}
+.resume-modal-title { font-size: 1.35rem; font-weight: 700; }
+.resume-modal-sub { color: var(--sun-gold); font-size: 0.88rem; }
+.resume-modal-actions { display: flex; gap: 0.75rem; margin-right: 2.5rem; }
 
 .resume-document {
   background: #FFFFFF;
@@ -2052,18 +1995,9 @@ a.contact-value:hover {
   gap: 0.5rem;
 }
 
-.r-label {
-  font-weight: 700;
-  color: #1E293B;
-}
-
-.r-val {
-  color: #334155;
-}
-
-.resume-proj-entry {
-  margin-bottom: 1rem;
-}
+.r-label { font-weight: 700; color: #1E293B; }
+.r-val { color: #334155; }
+.resume-proj-entry { margin-bottom: 1rem; }
 
 .entry-header {
   display: flex;
@@ -2072,18 +2006,8 @@ a.contact-value:hover {
   margin-bottom: 0.25rem;
 }
 
-.entry-header h3 {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #1E293B;
-}
-
-.entry-meta {
-  font-size: 0.82rem;
-  font-style: italic;
-  color: #D97706;
-}
-
+.entry-header h3 { font-size: 0.98rem; font-weight: 700; color: #1E293B; }
+.entry-meta { font-size: 0.82rem; font-style: italic; color: #D97706; }
 .entry-bullets {
   padding-left: 1.25rem;
   font-size: 0.88rem;
@@ -2091,10 +2015,7 @@ a.contact-value:hover {
   line-height: 1.5;
 }
 
-.entry-sub {
-  font-size: 0.88rem;
-  color: #475569;
-}
+.entry-sub { font-size: 0.88rem; color: #475569; }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
@@ -2103,20 +2024,10 @@ a.contact-value:hover {
     text-align: center;
     gap: 3rem;
   }
-
   .hero-content { order: 2; }
   .hero-visual { order: 1; }
-
-  .hero-bio {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-cta-group,
-  .hero-social-links {
-    justify-content: center;
-  }
-
+  .hero-bio { margin-left: auto; margin-right: auto; }
+  .hero-cta-group, .hero-social-links { justify-content: center; }
   .about-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -2149,10 +2060,7 @@ a.contact-value:hover {
 }
 
 @media print {
-  body {
-    background: #fff !important;
-    color: #000 !important;
-  }
+  body { background: #fff !important; color: #000 !important; }
   .navbar, .footer, .hero-section, .about-section, .skills-section,
   .education-section, .experience-section, .projects-section, .contact-section,
   .back-to-top, .modal-close-btn, .resume-modal-header {
@@ -2171,8 +2079,5 @@ a.contact-value:hover {
     max-width: 100%;
     max-height: none;
   }
-  .resume-document {
-    padding: 0 !important;
-    max-height: none !important;
-  }
+  .resume-document { padding: 0 !important; max-height: none !important; }
 }
