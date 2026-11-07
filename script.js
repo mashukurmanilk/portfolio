@@ -141,26 +141,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentSectionId = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop - 140;
       const sectionHeight = section.offsetHeight;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         currentSectionId = section.getAttribute('id');
       }
     });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSectionId}`) {
-        link.classList.add('active');
-        link.classList.add('visited');
-      }
+    if (currentSectionId) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+      drawerLinks.forEach(dlink => {
+        if (dlink.getAttribute('href') === `#${currentSectionId}`) {
+          dlink.classList.add('active');
+        } else {
+          dlink.classList.remove('active');
+        }
+      });
+    }
+  });
+
+  // State changes when a button is pressed on it
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
     });
   });
 
-  // Track clicked/visited state on navigation buttons
-  navLinks.forEach(link => {
+  const drawerNavLinks = document.querySelectorAll('.drawer-link');
+  drawerNavLinks.forEach(link => {
     link.addEventListener('click', () => {
-      link.classList.add('visited');
+      drawerNavLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
     });
   });
 

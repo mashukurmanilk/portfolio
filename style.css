@@ -279,7 +279,7 @@ button {
 .mt-3 { margin-top: 1rem; }
 .mt-4 { margin-top: 1.5rem; }
 
-/* ==================== 1. NAVBAR (#e8d0ca, DASHED SEPARATOR & MAROON UNDERLINE) ==================== */
+/* ==================== 1. NAVBAR (#e8d0ca with Texture, Dashed Separator & Active/Pressed Maroon Underline) ==================== */
 .navbar {
   position: sticky;
   top: 0;
@@ -287,17 +287,21 @@ button {
   width: 100%;
   z-index: 100;
   background-color: var(--navbar-bg) !important; /* #e8d0ca */
+  background-image: url('assets/navbar-texture.png');
+  background-repeat: repeat;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 2px dashed #4A0E13 !important; /* Dashed separator line to hero */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
   transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
   background-color: #ebd5cf !important;
+  background-image: url('assets/navbar-texture.png');
+  background-repeat: repeat;
   border-bottom: 2px dashed #370705 !important;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.32);
 }
 
 .nav-container {
@@ -332,43 +336,53 @@ button {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
-/* Nav links with Maroon Underline when visited/active/hovered */
+/* Nav links: State ONLY changes when pressed or scrolled to that part */
 .nav-link {
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--navbar-text); /* #370705 */
+  color: #5c181f; /* Elegant warm maroon on #e8d0ca */
   position: relative;
-  padding: 0.5rem 0.15rem;
-  transition: color var(--transition-fast);
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
+/* Underline bar positioned underneath the button text */
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
+  bottom: 0px;
+  left: 0.85rem;
+  right: 0.85rem;
   height: 3px;
-  background: var(--navbar-underline); /* #4A0E13 maroon underline */
-  transition: width 0.25s ease;
+  background-color: #4A0E13; /* Maroon */
+  background-image: url('assets/maroon-texture.png');
+  background-repeat: repeat;
   border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Visited / Active / Hover states show maroon underline */
-.nav-link:hover,
+/* Hover without active: do NOT show underline or change state! */
+.nav-link:hover:not(.active) {
+  color: #370705;
+}
+
+/* State ONLY changes when the button is pressed (:active) or scrolled to (.active) */
 .nav-link.active,
-.nav-link.visited,
-.nav-link:visited {
+.nav-link:active {
   color: #2A0508;
+  background-color: rgba(74, 14, 19, 0.08); /* Subtle textured accent when active */
 }
 
-.nav-link:hover::after,
 .nav-link.active::after,
-.nav-link.visited::after {
-  width: 100%;
+.nav-link:active::after {
+  transform: scaleX(1);
 }
 
 .nav-actions {
@@ -470,15 +484,22 @@ button {
   gap: 0.9rem;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #370705;
-  padding: 0.5rem 0;
+  color: #5c181f;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
   position: relative;
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
-.drawer-link:hover,
+.drawer-link:hover:not(.active) {
+  color: #370705;
+}
+
 .drawer-link.active,
-.drawer-link.visited {
-  color: #4A0E13;
+.drawer-link:active {
+  color: #2A0508;
+  background-color: rgba(74, 14, 19, 0.12);
   text-decoration: underline;
   text-decoration-color: #4A0E13;
   text-decoration-thickness: 3px;
