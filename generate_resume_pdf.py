@@ -11,15 +11,14 @@ doc = SimpleDocTemplate(
     pagesize=letter,
     leftMargin=0.5 * inch,
     rightMargin=0.5 * inch,
-    topMargin=0.5 * inch,
-    bottomMargin=0.5 * inch
+    topMargin=0.45 * inch,
+    bottomMargin=0.45 * inch
 )
 
 styles = getSampleStyleSheet()
 
-# Custom color palette matching the site
-SUN_GOLD = colors.HexColor('#D97706') # Darker sun gold for print readability
-SUN_ACCENT = colors.HexColor('#F59E0B')
+# Custom colors extracted from palette
+SUN_GOLD = colors.HexColor('#D97706') # For print contrast
 MAROON = colors.HexColor('#4A0E13')
 DARK_TEXT = colors.HexColor('#1E293B')
 MUTED_TEXT = colors.HexColor('#475569')
@@ -27,8 +26,8 @@ MUTED_TEXT = colors.HexColor('#475569')
 name_style = ParagraphStyle(
     'NameStyle',
     fontName='Helvetica-Bold',
-    fontSize=24,
-    leading=28,
+    fontSize=22,
+    leading=26,
     textColor=MAROON,
     alignment=0
 )
@@ -36,8 +35,8 @@ name_style = ParagraphStyle(
 title_style = ParagraphStyle(
     'TitleStyle',
     fontName='Helvetica-Bold',
-    fontSize=13,
-    leading=16,
+    fontSize=11,
+    leading=14,
     textColor=SUN_GOLD,
     alignment=0
 )
@@ -45,8 +44,8 @@ title_style = ParagraphStyle(
 contact_style = ParagraphStyle(
     'ContactStyle',
     fontName='Helvetica',
-    fontSize=9,
-    leading=13,
+    fontSize=8.5,
+    leading=12,
     textColor=MUTED_TEXT,
     alignment=0
 )
@@ -54,119 +53,113 @@ contact_style = ParagraphStyle(
 section_heading = ParagraphStyle(
     'SectionHeading',
     fontName='Helvetica-Bold',
-    fontSize=12,
-    leading=15,
+    fontSize=11,
+    leading=14,
     textColor=MAROON,
-    spaceAfter=4
+    spaceAfter=3
 )
 
 item_title = ParagraphStyle(
     'ItemTitle',
     fontName='Helvetica-Bold',
-    fontSize=10,
-    leading=13,
+    fontSize=9.5,
+    leading=12.5,
     textColor=DARK_TEXT
-)
-
-item_sub = ParagraphStyle(
-    'ItemSub',
-    fontName='Helvetica-Oblique',
-    fontSize=9,
-    leading=12,
-    textColor=SUN_GOLD
 )
 
 body = ParagraphStyle(
     'Body',
     fontName='Helvetica',
-    fontSize=9,
-    leading=12.5,
+    fontSize=8.5,
+    leading=12,
     textColor=DARK_TEXT
 )
 
 bullet = ParagraphStyle(
     'Bullet',
     fontName='Helvetica',
-    fontSize=8.5,
+    fontSize=8.2,
     leading=11.5,
     textColor=DARK_TEXT,
-    leftIndent=12
+    leftIndent=10
 )
 
 story = []
 
 # Header
 story.append(Paragraph("MASHUKUR MANIK", name_style))
-story.append(Paragraph("Full Stack Web Developer • MERN & Next.js Specialist", title_style))
-story.append(Spacer(1, 4))
-story.append(Paragraph("Email: mashukurmanik2552@gmail.com | GitHub: github.com/mashukurmanilk | Location: Dhaka, Bangladesh", contact_style))
-story.append(Spacer(1, 8))
-story.append(HRFlowable(width="100%", thickness=1.5, color=SUN_GOLD, spaceAfter=10))
+story.append(Paragraph("Undergraduate CSE Student @ SUST • Full Stack Web Developer & ML / DL Engineer", title_style))
+story.append(Spacer(1, 3))
+story.append(Paragraph("Email: mashukurmanik2552@gmail.com | GitHub: github.com/mashukurmanilk | Location: Sylhet / Dhaka, Bangladesh", contact_style))
+story.append(Spacer(1, 6))
+story.append(HRFlowable(width="100%", thickness=1.5, color=SUN_GOLD, spaceAfter=8))
 
 # Summary
 story.append(Paragraph("PROFESSIONAL SUMMARY", section_heading))
 story.append(Paragraph(
-    "Results-driven Full Stack Web Developer skilled in JavaScript, TypeScript, React.js, Next.js, Node.js, Express, and MongoDB. "
-    "Passionate about crafting high-performance, visually polished, and scalable web applications. Strong architectural mindset "
-    "with proven experience building real-time dashboards, cloud storage hubs, and full-stack management systems.",
+    "Undergraduate Computer Science & Engineering student at Shahjalal University of Science and Technology (SUST). "
+    "Full Stack Web Developer and Machine Learning / Deep Learning practitioner with proven expertise building scalable "
+    "applications with Next.js, React, Node.js, Express, and MongoDB, alongside training deep learning neural architectures "
+    "(CNNs, Transformers, predictive modeling) using PyTorch, TensorFlow, and Scikit-Learn.",
     body
 ))
-story.append(Spacer(1, 10))
+story.append(Spacer(1, 8))
+
+# Education
+story.append(Paragraph("EDUCATION", section_heading))
+story.append(Paragraph("<b>Shahjalal University of Science and Technology (SUST)</b>", item_title))
+story.append(Paragraph("<i>B.Sc. (Engineering) in Computer Science & Engineering (CSE)</i> — Undergrad Student", body))
+story.append(Paragraph("• Core Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Operating Systems, DBMS, Software Engineering, Object-Oriented Programming.", bullet))
+story.append(Spacer(1, 4))
+story.append(Paragraph("<b>Higher Secondary Certificate (HSC)</b> — Science Division (GPA 5.00)", item_title))
+story.append(Paragraph("• Core Subjects: Mathematics, Physics, Chemistry, Information & Communication Technology (ICT).", bullet))
+story.append(Spacer(1, 8))
 
 # Technical Skills
 story.append(Paragraph("TECHNICAL SKILLS", section_heading))
 skills_data = [
-    [Paragraph("<b>Frontend:</b>", item_title), Paragraph("React.js, Next.js 14, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, DaisyUI", body)],
-    [Paragraph("<b>Backend:</b>", item_title), Paragraph("Node.js, Express.js, RESTful APIs, JWT Authentication, Better Auth / NextAuth", body)],
-    [Paragraph("<b>Databases:</b>", item_title), Paragraph("MongoDB, Mongoose, Prisma ORM, SQLite", body)],
-    [Paragraph("<b>Tools & Workflow:</b>", item_title), Paragraph("Git, GitHub, VS Code, Vite, Postman, Vercel, Netlify, Docker basics", body)]
+    [Paragraph("<b>ML & Deep Learning:</b>", item_title), Paragraph("PyTorch, TensorFlow, Keras, Scikit-Learn, NumPy, Pandas, OpenCV, CNNs, Transformers, Model Optimization", body)],
+    [Paragraph("<b>Frontend:</b>", item_title), Paragraph("React.js, Next.js 14 (App Router), TypeScript, JavaScript (ES6+), Tailwind CSS, DaisyUI, HTML5, CSS3", body)],
+    [Paragraph("<b>Backend & APIs:</b>", item_title), Paragraph("Node.js, Express.js, RESTful APIs, JWT Authentication, Better Auth, FastAPI basics", body)],
+    [Paragraph("<b>Databases & Tools:</b>", item_title), Paragraph("MongoDB, Mongoose ORM, Prisma ORM, SQLite, Git, GitHub, Vite, Postman, Vercel, Docker basics", body)]
 ]
-skills_table = Table(skills_data, colWidths=[1.3 * inch, 6.2 * inch])
+skills_table = Table(skills_data, colWidths=[1.4 * inch, 6.1 * inch])
 skills_table.setStyle(TableStyle([
     ('VALIGN', (0,0), (-1,-1), 'TOP'),
-    ('BOTTOMPADDING', (0,0), (-1,-1), 2),
-    ('TOPPADDING', (0,0), (-1,-1), 2),
+    ('BOTTOMPADDING', (0,0), (-1,-1), 1.5),
+    ('TOPPADDING', (0,0), (-1,-1), 1.5),
 ]))
 story.append(skills_table)
-story.append(Spacer(1, 10))
+story.append(Spacer(1, 8))
 
-# Featured Projects
-story.append(Paragraph("FEATURED PROJECTS", section_heading))
+# Featured Projects (BookNook, Private Vault, Cyber-Hub)
+story.append(Paragraph("PROJECT VAULT (FEATURED WORK)", section_heading))
 
-# Project 1: BookNook
-story.append(Paragraph("<b>BookNook – Full-Stack Library Management System</b> | <i>React, Next.js, Express, MongoDB, Tailwind CSS</i>", item_title))
-story.append(Paragraph("• Built comprehensive book borrowing, inventory tracking, and dynamic catalog filtering workflows.", bullet))
-story.append(Paragraph("• Implemented secure JWT authentication and role-based access for readers and administrators.", bullet))
+# 1. BookNook
+story.append(Paragraph("<b>BookNook – Full-Stack Library Ecosystem & ML Recommendations</b> | <i>React, Next.js, Express, MongoDB, Tailwind, Scikit-Learn</i>", item_title))
+story.append(Paragraph("• Built comprehensive library management platform with book borrowing workflows, status tracking, and inventory control.", bullet))
+story.append(Paragraph("• Implemented content-based book recommendation engine using cosine similarity and reader preference vectors.", bullet))
 story.append(Paragraph("• Live URL: booknook-client.vercel.app | Repo: github.com/mashukurmanilk/BookNook-frontend", bullet))
-story.append(Spacer(1, 6))
+story.append(Spacer(1, 5))
 
-# Project 2: Private Cloud Vault
-story.append(Paragraph("<b>Private Cloud Vault – Personal Media & Storage Hub</b> | <i>Next.js 14, TypeScript, Tailwind, Prisma, SQLite</i>", item_title))
-story.append(Paragraph("• Engineered personal cloud hub with drag-and-drop batch file uploads and clipboard paste support.", bullet))
-story.append(Paragraph("• Implemented native HTTP 206 partial content range streaming for instant mobile video scrubbing.", bullet))
+# 2. Private Vault
+story.append(Paragraph("<b>Private Vault – Self-Hosted Media & Cloud Storage Hub</b> | <i>Next.js 14, TypeScript, Tailwind, Prisma, SQLite, HTTP 206</i>", item_title))
+story.append(Paragraph("• Engineered personal cloud storage platform with drag-and-drop batch upload, clipboard screenshot paste, and master PIN auth.", bullet))
+story.append(Paragraph("• Implemented native HTTP 206 Partial Content range requests for instant video scrubbing across devices.", bullet))
 story.append(Paragraph("• Live URL: private-cloud-vault.vercel.app | Repo: github.com/mashukurmanilk/private-cloud-vault", bullet))
-story.append(Spacer(1, 6))
+story.append(Spacer(1, 5))
 
-# Project 3: Cyber-HUD Data Nexus
-story.append(Paragraph("<b>Cyber-HUD (Data Nexus) – Gamified Developer Terminal</b> | <i>React, Vite, Web Audio API, Canvas, Tailwind</i>", item_title))
-story.append(Paragraph("• Created high-tech cyberpunk productivity dashboard with synthesized retro sound effects and streak tracking.", bullet))
-story.append(Paragraph("• Designed responsive animated cyber-grid canvas and interactive habit matrices.", bullet))
+# 3. Cyber-Hub
+story.append(Paragraph("<b>Cyber-Hub – Gamified Developer Productivity Terminal & Analytics</b> | <i>React, Vite, Web Audio API, Canvas, Predictive Trends</i>", item_title))
+story.append(Paragraph("• Created high-tech developer command center with synthesized Web Audio 8-bit sound effects and interactive 60 FPS canvas grid.", bullet))
+story.append(Paragraph("• Designed habit tracking protocols, productivity regression forecasting, and streak tracking logic.", bullet))
 story.append(Paragraph("• Live URL: cyber-hud.vercel.app | Repo: github.com/mashukurmanilk/cyber-hud", bullet))
-story.append(Spacer(1, 10))
+story.append(Spacer(1, 8))
 
-# Education
-story.append(Paragraph("EDUCATION & TRAINING", section_heading))
-story.append(Paragraph("<b>Complete Web Development Course (Batch 14)</b> – Programming Hero", item_title))
-story.append(Paragraph("Comprehensive training in modern MERN stack, Next.js, TypeScript, data structures, and production deployment.", body))
-story.append(Spacer(1, 4))
-story.append(Paragraph("<b>Higher Secondary Certificate (HSC) & Secondary School Certificate (SSC)</b>", item_title))
-story.append(Paragraph("Science Background with focus on Mathematics, Physics, and ICT.", body))
-story.append(Spacer(1, 10))
-
-# Key Attributes
-story.append(Paragraph("STRENGTHS & COMPETENCIES", section_heading))
-story.append(Paragraph("• Strong problem-solving abilities, clean code advocate, fast learner, and passionate collaborator.", body))
-story.append(Paragraph("• Avid gamer and tech enthusiast with keen attention to UI design fidelity, animations, and typography.", body))
+# Strengths
+story.append(Paragraph("CORE COMPETENCIES", section_heading))
+story.append(Paragraph("• Strong foundation in algorithmic problem-solving, data structures, and computer science theory from SUST CSE.", body))
+story.append(Paragraph("• Hands-on experience taking complex web applications and deep learning models from ideation to production deployment.", body))
 
 doc.build(story)
-print("Resume PDF generated successfully at:", pdf_path)
+print("Updated Resume PDF generated successfully at:", pdf_path)

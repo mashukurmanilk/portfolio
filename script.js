@@ -1,112 +1,74 @@
 /**
  * MASHUKUR MANIK PORTFOLIO SCRIPT
- * Handles Typewriter animation, scroll spy, mobile drawer,
+ * Undergraduate CSE @ SUST | Full Stack Web Developer & ML / DL Engineer
+ * Features: Typewriter animation, scroll spy, mobile drawer,
  * project details modal, resume preview modal, skills filter,
  * copy-to-clipboard, contact form validation, and back-to-top.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ==================== 1. PROJECT DATA DICTIONARY ====================
+  // ==================== 1. PROJECT DATA DICTIONARY (PROJECT VAULT) ====================
   const projectsData = {
     booknook: {
-      name: "BookNook – Full-Stack Library Ecosystem",
-      category: "MERN Stack Application",
+      name: "BookNook – Full-Stack Library Ecosystem & ML Recommendations",
+      category: "MERN Stack + Machine Learning",
       image: "assets/project-booknook.png",
       liveUrl: "https://booknook-client.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/BookNook-frontend",
       serverRepo: "https://github.com/mashukurmanilk/BookNook-backend",
-      techStack: ["React.js", "Next.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Tailwind CSS", "JWT Auth"],
-      description: "BookNook is a full-featured digital library management system designed to make borrowing, categorizing, and discovering books seamless. It features an intuitive reader dashboard, real-time catalog filtering, book status tracking (Available, Borrowed, Overdue), and an authenticated admin panel for inventory and user management.",
+      techStack: ["React.js", "Next.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Scikit-Learn", "Python", "Tailwind CSS", "JWT Auth"],
+      description: "BookNook is an end-to-end digital library platform enabling users to browse book catalogs, manage borrowings, track return dates, leave authenticated reviews, and discover personalized reading suggestions powered by a content-based machine learning recommendation engine.",
       challenges: [
         "Handling concurrent book borrowing states so multiple readers cannot simultaneously borrow the last available copy of a physical book title.",
+        "Developing an efficient content-based recommendation algorithm in Python / Scikit-Learn using TF-IDF and Cosine Similarity, and serving predictions smoothly to the Next.js frontend.",
         "Architecting secure JWT session persistence across both server-side rendered routes and client-side reactive components.",
-        "Optimizing MongoDB queries for deep text search and category filtration across large book inventories."
+        "Optimizing MongoDB indexing and query pipelines for rapid multi-criteria catalog search and pagination."
       ],
       improvements: [
-        "Integrate AI-driven book recommendations based on user reading history and genre preferences.",
-        "Implement automated email reminders for upcoming due dates using Nodemailer and cron triggers.",
+        "Upgrade the recommendation engine to a hybrid deep learning model combining collaborative filtering neural embeddings with metadata vectors.",
+        "Implement automated email reminders for upcoming due dates using Nodemailer and background cron workers.",
         "Add an interactive in-browser PDF reader for royalty-free preview excerpts."
       ]
     },
 
     vault: {
-      name: "Private Cloud Vault – Personal Media & Storage Hub",
-      category: "Next.js 14 Full Stack Hub",
+      name: "Private Vault – Self-Hosted Cloud & Media Hub",
+      category: "Next.js 14 Full Stack + HTTP 206 Streaming",
       image: "assets/project-vault.png",
       liveUrl: "https://private-cloud-vault.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/private-cloud-vault",
-      techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Prisma ORM", "SQLite", "HTTP 206 Streaming", "Bcrypt"],
-      description: "A zero-friction, self-hosted personal cloud storage hub. Private Cloud Vault allows users to drag-and-drop batch files, paste clipboard screenshots directly (Ctrl+V), organize documents, and stream high-bitrate video natively with instant timeline scrubbing. Built with 100% privacy and master PIN authentication.",
+      techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Prisma ORM", "SQLite", "HTTP 206 Streaming", "Bcrypt", "Deep Learning Tagging"],
+      description: "A zero-friction, self-hosted personal cloud storage hub. Private Vault allows users to drag-and-drop batch files, paste clipboard screenshots directly (Ctrl+V), organize documents, and stream high-bitrate video natively with instant timeline scrubbing. Built with 100% privacy, master PIN security, and automated file classification.",
       challenges: [
         "Implementing native HTTP 206 Partial Content range requests in Next.js App Router for smooth video scrubbing on mobile iOS/Android browsers.",
-        "Handling memory-efficient chunked file uploads without hitting serverless RAM limits.",
-        "Generating instant client-side previews for various document MIME types (PDFs, Markdown, Images, Audio)."
+        "Handling memory-efficient chunked file uploads without hitting serverless RAM boundaries.",
+        "Designing client-side previews for various document MIME types (PDFs, Markdown, Images, Code, Audio)."
       ],
       improvements: [
+        "Integrate a lightweight deep learning computer vision model (MobileNet) to auto-tag uploaded photos and detect document boundaries.",
         "Implement end-to-end client-side encryption using Web Crypto API (AES-GCM-256) before uploading.",
-        "Add federated storage providers (allowing sync with AWS S3, Cloudflare R2, or Google Cloud Storage).",
-        "Enable one-time expiring download links for secure file sharing with external peers."
+        "Add federated storage providers (allowing sync with AWS S3, Cloudflare R2, or Google Cloud Storage)."
       ]
     },
 
     cyberhud: {
-      name: "Cyber-HUD: Data Nexus – Gamified Terminal",
-      category: "Interactive React Application",
+      name: "Cyber-Hub: Data Nexus – Gamified Terminal & Analytics",
+      category: "Interactive App & Audio Synth",
       image: "assets/project-cyberhud.png",
       liveUrl: "https://cyber-hud.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/cyber-hud",
-      techStack: ["React", "Vite", "Web Audio API", "HTML5 Canvas", "Tailwind CSS", "LocalStorage DB"],
-      description: "A cyberpunk-themed developer productivity command center. Combines habit tracking protocols, daily task matrices, and visual focus analytics with real-time synthesized retro audio frequencies. Features an animated cyberpunk perspective grid canvas and effort-based XP leveling.",
+      techStack: ["React", "Vite", "Web Audio API", "HTML5 Canvas", "Tailwind CSS", "Predictive Analytics", "LocalStorage DB"],
+      description: "A cyberpunk-themed developer productivity command center. Combines habit tracking protocols, daily task matrices, and visual focus analytics with real-time synthesized retro audio frequencies. Features an animated cyberpunk perspective grid canvas, effort-based XP leveling, and regression-based productivity trend forecasting.",
       challenges: [
         "Synthesizing customized retro 8-bit sound effects using native Web Audio API oscillators without audio clipping or browser autoplay restrictions.",
         "Rendering an interactive 60 FPS perspective grid on HTML5 canvas while maintaining fluid UI responsiveness.",
-        "Building offline-first data persistence and streak calculation logic resilient against timezone changes."
+        "Building offline-first data persistence, streak calculation logic, and linear trend regression resilient against timezone shifts."
       ],
       improvements: [
+        "Train a sequence-prediction recurrent neural network (LSTM) to predict productivity slumps and dynamically suggest optimal focus intervals.",
         "Migrate offline storage to a cloud-synced backend with multiplayer developer quest leaderboards.",
-        "Add GitHub commit sync to automatically convert real-world coding commits into in-game energy/XP.",
-        "Create customizable cyberpunk theme shaders with WebGL."
-      ]
-    },
-
-    bpldream: {
-      name: "B14 BPL Dream 11 – Cricket Fantasy Team Builder",
-      category: "Sports & Fantasy Application",
-      image: "assets/project-bpldream.png",
-      liveUrl: "https://bpl-dream-11.surge.sh",
-      clientRepo: "https://github.com/mashukurmanilk/b14-BPL-dream-11",
-      techStack: ["React", "Tailwind CSS", "DaisyUI", "React-Toastify", "Vite"],
-      description: "An interactive sports draft platform where cricket enthusiasts can claim virtual coin credits, draft their dream 11 player squad within budget caps, balance player roles (Batsmen, Bowlers, All-rounders), and manage active line-ups.",
-      challenges: [
-        "Synchronizing remaining coin balances, active player counts, and role limitations across multiple decoupled components without state corruption.",
-        "Designing smooth visual toast feedback when budget thresholds or duplicate player selections are triggered.",
-        "Building a fully responsive player selection grid that feels like a native sports management application on mobile."
-      ],
-      improvements: [
-        "Integrate live Cricbuzz / RapidAPI feed for real-time match scores and automated player fantasy points calculation.",
-        "Add multiplayer draft rooms where multiple friends can participate in live player auctions.",
-        "Implement tournament leaderboard rankings with social sharing cards."
-      ]
-    },
-
-    bazardor: {
-      name: "Bazar Dor Tracker – Daily Commodity Price Monitor",
-      category: "Utility & Budgeting Web App",
-      image: "assets/project-bazardor.png",
-      liveUrl: "https://bazar-dor.surge.sh",
-      clientRepo: "https://github.com/mashukurmanilk/bazar-dor",
-      techStack: ["React", "JavaScript (ES6+)", "REST APIs", "Tailwind CSS", "Chart.js"],
-      description: "A community-focused commodity price tracking tool for daily market items (vegetables, proteins, spices, pantry essentials). Enables households to calculate market baskets, compare daily price shifts, and budget grocery expenses intelligently.",
-      challenges: [
-        "Visualizing historical item price trends on mobile viewports using responsive charts.",
-        "Structuring local item caching to allow quick price lookups in areas with poor market connectivity.",
-        "Designing an intuitive unit conversion system (Kg, Gram, Liter, Piece) for consistent total price aggregation."
-      ],
-      improvements: [
-        "Add crowd-sourced receipt scanning via OCR to automatically extract and verify market rates.",
-        "Integrate location-based price comparisons between neighborhood wet markets and supermarkets.",
-        "Provide weekly budget alerts and inflation trend reports."
+        "Add GitHub commit sync to automatically convert real-world coding commits into in-game energy/XP."
       ]
     }
   };
@@ -114,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==================== 2. TYPEWRITER EFFECT ====================
   const typewriterElement = document.getElementById('typewriter-text');
   const designations = [
+    "Undergrad CSE Student @ SUST",
     "Full Stack Web Developer",
-    "MERN Stack Specialist",
-    "Next.js & React Engineer",
-    "UI/UX Focused Architect",
-    "Continuous Problem Solver"
+    "Machine Learning & DL Engineer",
+    "Next.js & React Specialist",
+    "AI & Neural Networks Explorer",
+    "Algorithmic Problem Solver"
   ];
   
   let phraseIndex = 0;
@@ -134,16 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isDeleting) {
       typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
       charIndex--;
-      typingSpeed = 50;
+      typingSpeed = 45;
     } else {
       typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
       charIndex++;
-      typingSpeed = 100;
+      typingSpeed = 90;
     }
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-      // Pause at full phrase
-      typingSpeed = 2000;
+      typingSpeed = 2200;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
@@ -165,21 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset;
 
-    // Navbar background blur/border enhancement on scroll
     if (scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    // Back to top button visibility
     if (scrollY > 500) {
       backToTopBtn.classList.add('visible');
     } else {
       backToTopBtn.classList.remove('visible');
     }
 
-    // Scroll spy for navigation items
     let currentSectionId = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
@@ -197,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Back to top click
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -415,7 +373,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulate sending with nice button state
       btnSubmit.disabled = true;
       btnSubmit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Sending Message...</span>`;
 
