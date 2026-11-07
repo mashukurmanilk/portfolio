@@ -1,7 +1,7 @@
 /* ===================================================================
    MASHUKUR MANIK PORTFOLIO DESIGN SYSTEM
    - Background: background.jpg (Fixed atmospheric smoky clouds)
-   - Navbar Background: #e8d0ca with a dashed bottom separator line
+   - Navbar Background: #e8d0ca with a straight solid bottom separator line
    - Visited/Active Nav Links: Rich Maroon Underline (#4A0E13)
    - Primary Color: The Color of the Sun (#F59E0B, #FBBF24, #D97706)
    - Secondary Color & Texture: Roman Maroon (#4A0E13, #370705) with maroon-texture.png
@@ -285,7 +285,7 @@ button {
 .mt-3 { margin-top: 1rem; }
 .mt-4 { margin-top: 1.5rem; }
 
-/* ==================== 1. NAVBAR (#e8d0ca with Texture, Dashed Separator & Active/Pressed Maroon Underline) ==================== */
+/* ==================== 1. NAVBAR (#e8d0ca with Texture, Straight Separator Line & Active/Pressed Maroon Underline) ==================== */
 .navbar {
   position: sticky;
   top: 0;
@@ -297,7 +297,7 @@ button {
   background-repeat: repeat;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px dashed #4A0E13 !important; /* Dashed separator line to hero */
+  border-bottom: 2px solid #4A0E13 !important; /* Straight solid separator line to hero */
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
   transition: all var(--transition-normal);
 }
@@ -306,7 +306,7 @@ button {
   background-color: #ebd5cf !important;
   background-image: url('assets/navbar-texture.png');
   background-repeat: repeat;
-  border-bottom: 2px dashed #370705 !important;
+  border-bottom: 2px solid #370705 !important;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.32);
 }
 
@@ -462,7 +462,7 @@ button {
   justify-content: space-between;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px dashed #4A0E13;
+  border-bottom: 2px solid #4A0E13;
 }
 
 .drawer-logo {
