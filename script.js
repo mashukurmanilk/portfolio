@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     booknook: {
       name: "BookNook – Full-Stack Library Ecosystem & ML Recommendations",
       category: "MERN Stack + Machine Learning",
-      image: "assets/project-booknook.png",
+      image: "./assets/project-booknook.png",
       liveUrl: "https://booknook-client.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/BookNook-frontend",
       serverRepo: "https://github.com/mashukurmanilk/BookNook-backend",
