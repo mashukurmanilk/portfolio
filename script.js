@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vault: {
       name: "Private Vault – Self-Hosted Cloud & Media Hub",
       category: "Next.js 14 Full Stack + HTTP 206 Streaming",
-      image: "assets/project-vault.png",
+      image: "./assets/project-vault.png",
       liveUrl: "https://private-cloud-vault.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/private-cloud-vault",
       techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Prisma ORM", "SQLite", "HTTP 206 Streaming", "Bcrypt", "Deep Learning Tagging"],
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cyberhud: {
       name: "Cyber-Hub: Data Nexus – Gamified Terminal & Analytics",
       category: "Interactive App & Audio Synth",
-      image: "assets/project-cyberhud.png",
+      image: "./assets/cyber-hud.png",
       liveUrl: "https://cyber-hud.vercel.app",
       clientRepo: "https://github.com/mashukurmanilk/cyber-hud",
       techStack: ["React", "Vite", "Web Audio API", "HTML5 Canvas", "Tailwind CSS", "Predictive Analytics", "LocalStorage DB"],
